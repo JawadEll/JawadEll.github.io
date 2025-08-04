@@ -6,37 +6,223 @@
     <title>Projets | Jawad El Ibrahimi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .section-title { font-weight: bold; color: #0d6efd; margin-bottom: 20px; text-align: center; }
-        .project-card {
-            border: 1px solid #ddd; border-radius: 10px; padding: 15px;
-            transition: 0.3s; text-align: center;
+        :root {
+            --main-color: #1F0318;
+            --bg-color: #E5F2C9;
+            --accent-color: #DBC2CF;
+            --text-light: #fff;
         }
-        .project-card img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
-        .project-card:hover { background-color: #f8f9fa; transform: scale(1.03); }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--main-color);
+        }
+        nav.navbar {
+            background-color: var(--main-color) !important;
+        }
+        nav .navbar-brand, nav .nav-link {
+            color: var(--text-light) !important;
+        }
+        nav .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        .section-title {
+            font-weight: bold;
+            color: var(--main-color);
+            margin: 40px 0 30px;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .project-card {
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .btn-custom {
+            background: var(--main-color);
+            color: var(--text-light);
+            font-weight: bold;
+            border: none;
+            margin: 5px 5px 10px 0;
+            transition: background 0.3s ease;
+        }
+        .btn-custom:hover {
+            background: #3a0930;
+        }
+        .project-card h5 {
+            margin-top: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .project-card p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .project-stack strong {
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .project-stack ul {
+            padding-left: 18px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .feature-list {
+            text-align: left;
+            font-size: 0.9rem;
+            margin: 8px 0 12px;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: var(--main-color);
+            color: var(--text-light);
+            text-align: center;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html#home">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#about">À propos</a></li>
+                <li class="nav-item"><a class="nav-link active" href="projects.html">Projets</a></li>
+                <li class="nav-item"><a class="nav-link" href="stages.html">Stages</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container my-5">
-    <h2 class="section-title">Mes Projets</h2>
-    <div class="row">
-        <div class="col-md-6 mb-4">
+    <h2 class="section-title">Mes Réalisations</h2>
+    <div class="row g-4">
+        
+        <!-- Projet 1 : Job Portal -->
+        <div class="col-md-6 col-lg-4">
             <div class="project-card">
-                <img src="img/ImgPtflio.jpg" alt="Projet 1">
-                <h5>Gestion de Présence</h5>
-                <p>Application web pour gérer la présence des employés (Spring Boot, Thymeleaf, MySQL).</p>
-                <a href="https://github.com/JawadEll" target="_blank" class="btn btn-primary btn-sm">Voir GitHub</a>
+                <div id="carouselJobPortal" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active"><img src="img/h4.jpg" alt="Job Portal"></div>
+                        <div class="carousel-item"><img src="img/Can2.jpg" alt="Job Portal"></div>
+                        <div class="carousel-item"><img src="img/h3.jpg" alt="Job Portal"></div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselJobPortal" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselJobPortal" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                </div>
+                <h5>Job Portal</h5>
+                <p>Application pour la gestion des offres d'emploi et candidatures.</p>
+                <div class="project-stack">
+                    <strong>Stack :</strong>
+                    <ul>
+                        <li>Spring Boot</li>
+                        <li>Thymeleaf</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+                <a href="https://github.com/JawadEll/jobportal" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
+                <a href="https://emsi.ma/ingenierie-informatique-et-reseaux/" target="_blank" class="btn btn-custom btn-sm">Projet Académique</a>
             </div>
         </div>
-        <div class="col-md-6 mb-4">
+
+        <!-- Projet 2 : Optique -->
+        <div class="col-md-6 col-lg-4">
             <div class="project-card">
-                <img src="img/ImgPtflio.jpg" alt="Projet 2">
-                <h5>Système de Vente</h5>
-                <p>Système complet de gestion de ventes (Spring Boot, Angular, PostgreSQL, Docker).</p>
-                <a href="https://github.com/JawadEll" target="_blank" class="btn btn-primary btn-sm">Voir GitHub</a>
+                <img src="img/optique.jpg" alt="Optique El Kayssar" class="img-fluid rounded">
+                <h5>Optique El Kayssar</h5>
+                <p>Site vitrine pour opticien avec gestion basique.</p>
+                <div class="project-stack">
+                    <strong>Stack :</strong>
+                    <ul>
+                        <li>Laravel</li>
+                        <li>HTML, CSS</li>
+                    </ul>
+                </div>
+                <p><strong>Prix :</strong> 3000 DH</p>
+                <a href="https://github.com/JawadEll/optique-el-kayssar03" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
+
+                <a href="https://www.bt-africa.com/fr/entreprise/74480124-kayssar03" target="_blank" class="btn btn-custom btn-sm">Voir l'entreprise</a>
+            </div>
+        </div>
+
+        <!-- Projet 3 : Greenway -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+                <img src="img/greenway.jpg" alt="Greenway AriMayi" class="img-fluid rounded">
+                <h5>Greenway (AriMayi)</h5>
+                <p>Application d'entreprise pour la gestion des ventes et statistiques.</p>
+                <div class="project-stack">
+                    <strong>Stack :</strong>
+                    <ul>
+                        <li>Java 21, Spring Boot 3.2.5</li>
+                        <li>Spring Web, Data JPA, Thymeleaf</li>
+                        <li>PostgreSQL, PDF, Swagger</li>
+                    </ul>
+                </div>
+                <a href="https://github.com/JawadEll/projetStage2025" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
+                <a href="https://arimayi.fr/" target="_blank" class="btn btn-custom btn-sm">Voir l'entreprise</a>
+            </div>
+        </div>
+
+        <!-- Projet 4 : DigitalCrafts -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+                <div id="carouselDigitalCrafts" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active"><img src="img/sc.jpg" alt="DigitalCrafts Dashboard"></div>
+                        <div class="carousel-item"><img src="img/sc1.jpg" alt="DigitalCrafts Élèves"></div>
+                        <div class="carousel-item"><img src="img/sc2.jpg" alt="DigitalCrafts Notes"></div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDigitalCrafts" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDigitalCrafts" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                </div>
+                <h5>DigitalCrafts</h5>
+                <p>Plateforme de gestion scolaire intuitive et moderne.</p>
+                <div class="project-stack">
+                    <strong>Stack :</strong>
+                    <ul>
+                        <li>React.js ⚛️, Laravel 🛠️</li>
+                        <li>MySQL 🗄️</li>
+                        <li>Bootstrap & TailwindCSS 🎨</li>
+                    </ul>
+                </div>
+                <p class="feature-list"><strong>Fonctionnalités :</strong> Suivi élèves, gestion classes, attribution notes, sécurité avancée.</p>
+                <a href="https://github.com/JawadEll/DigitalCrafts" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
             </div>
         </div>
     </div>
-    <a href="index.html" class="btn btn-secondary mt-3">Retour à l'accueil</a>
+
+    <div class="text-center mt-5">
+        <a href="index.html" class="btn btn-secondary">← Retour à l'accueil</a>
+    </div>
 </div>
+
+<footer>
+    &copy; 2025 Jawad El Ibrahimi - Tous droits réservés.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
