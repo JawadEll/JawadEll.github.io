@@ -6,17 +6,160 @@
     <title>Stages | Jawad El Ibrahimi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .section-title { font-weight: bold; color: #0d6efd; margin-bottom: 20px; text-align: center; }
+        :root {
+            --main-color: #1F0318;
+            --bg-color: #E5F2C9;
+            --accent-color: #DBC2CF;
+            --text-light: #fff;
+        }
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .section-title {
+            font-weight: bold;
+            color: var(--main-color);
+            margin: 30px 0;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .stage-card {
+            background: var(--accent-color);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .stage-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+        }
+        .stage-item:last-child {
+            border-bottom: none;
+        }
+        .stage-logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+        }
+        .stage-info {
+            flex: 1;
+        }
+        .stage-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--main-color);
+        }
+        .company a {
+            font-size: 1rem;
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .company a:hover {
+            text-decoration: underline;
+        }
+        .location {
+            color: #0d8861;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .date {
+            font-size: 0.9rem;
+            color: #3a75b0;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+        .website {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        .website a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+        .website a:hover {
+            text-decoration: underline;
+        }
+        .btn-back {
+            background: var(--main-color);
+            color: var(--text-light);
+            font-weight: bold;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-back:hover {
+            background: #3a0930;
+        }
     </style>
 </head>
 <body>
+
 <div class="container my-5">
     <h2 class="section-title">Mes Stages</h2>
-    <ul>
-        <li><strong>Stage Développement Web</strong> – Création d’applications web et API REST.</li>
-        <li><strong>Stage en Réseaux</strong> – Administration Linux et gestion TCP/IP.</li>
-    </ul>
-    <a href="index.html" class="btn btn-secondary mt-3">Retour à l'accueil</a>
+    <div class="stage-card">
+
+        <!-- Stage 1 : AriMayi -->
+        <div class="stage-item">
+            <div class="stage-logo">
+                <img src="img/ari.jpg" alt="Logo AriMayi">
+            </div>
+            <div class="stage-info">
+                <div class="stage-title">Développement Web & API REST</div>
+                <div class="company">
+                    Entreprise :
+                    <a href="https://fr.kompass.com/c/arimayi-academy-pro/fra0d3xws/" target="_blank">AriMayi Academy Pro</a>
+                </div>
+                <div class="location"><i class="bi bi-geo-alt-fill"></i> Issy-les-Moulineaux, France</div>
+                <div class="date">📅 25 Juillet 2025 → 29 Septembre 2025</div>
+                <div class="website">🌐 Site Web :
+                    <a href="https://arimayi.fr/" target="_blank">www.arimayi.fr</a>
+                </div>
+                <p>Missions : Développement d’une solution complète avec <strong>Spring Boot</strong> (backend),
+                   <strong>Thymeleaf</strong> (frontend), <strong>PostgreSQL</strong>, et intégration d'API REST.</p>
+            </div>
+        </div>
+
+        <!-- Stage 2 : Optique El Kayssar -->
+        <div class="stage-item">
+            <div class="stage-logo">
+                <img src="img/Opp.jpg" alt="Logo Optique El Kayssar">
+            </div>
+            <div class="stage-info">
+                <div class="stage-title">Développement d'une application de facturation</div>
+                <div class="company">
+                    Entreprise :
+                    <a href="https://www.bt-africa.com/en/company/ODg1Njkw-kayssar03?RC=38383&ICE=003376297000096" target="_blank">Optique El Kayssar</a>
+                </div>
+                <div class="location"><i class="bi bi-geo-alt-fill"></i> Casablanca, Maroc</div>
+                <div class="date">📅 Mars 2024 → Mai 2024</div>
+                <div class="website">🌐 Site Web :
+                    <a href="https://opticstore.ma/" target="_blank">opticstore.ma</a>
+                </div>
+                <p>Missions : Conception et développement d’une application pour la <strong>facturation</strong> et la
+                   <strong>gestion des clients</strong> en utilisant <strong>Laravel</strong>, HTML, CSS et Bootstrap.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </body>
 </html>
