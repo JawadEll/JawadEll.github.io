@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificats | Jawad El Ibrahimi</title>
+  <meta name="description" content="Mes certificats et attestations : tech, cloud, frameworks, soft skills.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    :root{
+      --main-color:#1F0318; --bg-color:#E5F2C9; --accent-color:#DBC2CF; --text-light:#fff;
+    }
+    body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:var(--bg-color);color:var(--main-color)}
+    nav.navbar{background:var(--main-color)!important}
+    nav .navbar-brand,nav .nav-link{color:var(--text-light)!important}
+    nav .nav-link:hover{color:var(--accent-color)!important}
+
+    .hero{background:linear-gradient(135deg, rgba(219,194,207,.6), rgba(229,242,201,.6)); border-radius:16px; padding:24px; display:flex; align-items:center; gap:16px; box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    .hero .icon{width:54px;height:54px;display:grid;place-items:center;border-radius:12px;background:var(--main-color);color:var(--text-light)}
+    .hero h1{margin:0;font-weight:800;font-size:clamp(1.5rem,2.5vw,2rem)}
+    .hero p{margin:0;opacity:.85}
+    .kpis{display:flex;gap:10px;flex-wrap:wrap}
+    .kpi{background:#fff;border:1px dashed rgba(0,0,0,.2);border-radius:999px;padding:6px 12px;font-size:.85rem;display:flex;align-items:center;gap:8px}
+
+    .controls{gap:10px}
+    .section-title{font-weight:700;margin:20px 0 10px;text-align:center;font-size:2rem}
+
+    .cert-card{background:var(--accent-color);border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.12);overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+    .cert-card:hover{transform:translateY(-6px); box-shadow:0 12px 24px rgba(0,0,0,.18)}
+    .thumb{width:100%;height:160px;object-fit:cover;background:#fff}
+    .cert-body{padding:14px;display:flex;flex-direction:column;gap:8px}
+    .issuer-pill{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:999px;padding:4px 10px;font-size:.8rem}
+    .badge-skill{background:var(--main-color);color:var(--text-light);font-size:.72rem;margin:0 6px 6px 0}
+    .btn-verify i{vertical-align:-1px}
+    footer{margin-top:40px;padding:15px;background:var(--main-color);color:var(--text-light);text-align:center;font-size:.9rem}
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="bi bi-person-circle me-1"></i> Portfolio
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house-door-fill me-1"></i> Accueil
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html">
+                        <i class="bi bi-kanban-fill me-1"></i> Projets
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stages.html">
+                        <i class="bi bi-briefcase-fill me-1"></i> Stages
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <i class="bi bi-envelope-fill me-1"></i> Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<main class="container my-4">
+  <!-- Hero / Titre amélioré -->
+  <div class="hero mb-4" role="region" aria-label="En-tête certificats">
+    <div class="icon"><i class="bi bi-patch-check-fill fs-3" aria-hidden="true"></i></div>
+    <div class="flex-grow-1">
+      <h1 class="mb-1">Mes certificats</h1>
+      <p>Formations validées et attestations techniques (backend, frontend, cloud, DevOps…)</p>
+    </div>
+    <div class="kpis ms-auto">
+      <span class="kpi"><i class="bi bi-collection"></i><span id="kpiTotal">0</span> au total</span>
+      <span class="kpi"><i class="bi bi-calendar2-week"></i><span id="kpiRecent">0</span> en 12 mois</span>
+    </div>
+  </div>
+
+  <!-- Filtres -->
+  <div class="d-flex flex-wrap controls justify-content-between align-items-center mb-3">
+    <div class="d-flex flex-wrap align-items-center" style="gap:10px">
+      <div class="input-group input-group-sm" style="min-width:280px">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <input id="searchInput" type="search" class="form-control" placeholder="Rechercher (titre, compétences…)">
+      </div>
+      <div class="input-group input-group-sm" style="min-width:210px">
+        <span class="input-group-text"><i class="bi bi-tags-fill"></i></span>
+        <select id="categoryFilter" class="form-select">
+          <option value="">Toutes les catégories</option>
+          <option value="Backend">Backend</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Cloud">Cloud</option>
+          <option value="DevOps">DevOps</option>
+          <option value="Data">Data</option>
+          <option value="Soft Skills">Soft Skills</option>
+        </select>
+      </div>
+      <div class="input-group input-group-sm" style="min-width:210px">
+        <span class="input-group-text"><i class="bi bi-building"></i></span>
+        <select id="issuerFilter" class="form-select">
+          <option value="">Tous les éditeurs</option>
+          <option value="Coursera">Coursera</option>
+          <option value="Udemy">Udemy</option>
+          <option value="Google">Google</option>
+          <option value="AWS">AWS</option>
+          <option value="Microsoft">Microsoft</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grille -->
+  <div id="certGrid" class="row g-4"></div>
+
+  <!-- Pagination -->
+  <nav class="mt-4" aria-label="Pagination des certificats">
+    <ul id="pager" class="pagination justify-content-center"></ul>
+  </nav>
+</main>
+
+<footer>
+  &copy; 2025 Jawad El Ibrahimi - Tous droits réservés.
+</footer>
+
+<!-- Modal aperçu -->
+<div class="modal fade" id="certModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content" style="background:var(--accent-color)">
+      <div class="modal-header">
+        <h5 class="modal-title" id="certModalTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+        <img id="certModalImg" src="" alt="" class="img-fluid rounded w-100" loading="lazy">
+      </div>
+      <div class="modal-footer">
+        <a id="certVerifyLink" href="#" target="_blank" rel="noopener" class="btn btn-dark btn-sm d-none">
+          <i class="bi bi-shield-check"></i> Vérifier
+        </a>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ====== Données (déplaçables dans certificats.json) ======
+  const CERTS = [
+    { title:"Java", issuer:"Coursera", date:"2025-07-15", category:"Backend",  skills:["Fondamentaux Java","Concepts OOP"], image:"pdf/java.jpg",        verifyUrl:"" },
+    { title:"React Native", issuer:"Coursera", date:"2025-06-20", category:"Frontend", skills:["React Native","Mobile Apps"], image:"pdf/reactnativ.jpg", verifyUrl:"" },
+    { title:"Azure", issuer:"Coursera", date:"2025-05-10", category:"Cloud",   skills:["Azure","Cloud Services"], image:"pdf/azure.jpg",       verifyUrl:"" },
+    { title:"Docker", issuer:"Coursera", date:"2025-04-05", category:"DevOps",  skills:["Docker","Containers"],    image:"pdf/docker.jpg",      verifyUrl:"" },
+    { title:"Git & GitHub Pro", issuer:"Coursera", date:"2025-02-01", category:"DevOps", skills:["Git","GitHub","CI/CD"], image:"pdf/git.jpg", verifyUrl:"" },
+    { title:"React", issuer:"Coursera", date:"2024-02-01", category:"Frontend", skills:["React","SPA","Hooks"], image:"pdf/React.jpg", verifyUrl:"" }
+  ];
+
+  // ====== Utilitaires ======
+  const PAGE_SIZE = 9;
+  let currentPage = 1;
+
+  const grid = document.getElementById('certGrid');
+  const pager = document.getElementById('pager');
+  const searchInput = document.getElementById('searchInput');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const issuerFilter = document.getElementById('issuerFilter');
+
+  const issuerIcon = (name) => {
+    const map = {
+      "Coursera":"bi-mortarboard-fill",
+      "Udemy":"bi-mortarboard",
+      "Google":"bi-google",
+      "AWS":"bi-cloud-fill",
+      "Microsoft":"bi-windows"
+    };
+    return map[name] || "bi-award";
+  };
+
+  function matchesFilters(c) {
+    const q = (searchInput.value || "").trim().toLowerCase();
+    const cat = categoryFilter.value;
+    const iss = issuerFilter.value;
+
+    const inText = (c.title + " " + c.issuer + " " + c.category + " " + c.skills.join(" ")).toLowerCase().includes(q);
+    const catOk = !cat || c.category === cat;
+    const issOk = !iss || c.issuer === iss;
+
+    return inText && catOk && issOk;
+  }
+
+  function cardTemplate(c){
+    const year = new Date(c.date).getFullYear();
+    const dateStr = new Date(c.date).toLocaleDateString('fr-FR');
+    return `
+      <div class="cert-card w-100">
+        <img class="thumb" src="${c.image}" alt="Certificat ${c.title}" loading="lazy"
+             onerror="this.src='https://dummyimage.com/1200x600/ffffff/aaa&text=${encodeURIComponent(c.title)}'">
+        <div class="cert-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <h5 class="mb-1">${c.title}</h5>
+            <span class="issuer-pill" title="${c.issuer}">
+              <i class="bi ${issuerIcon(c.issuer)}"></i> ${c.issuer} · ${year}
+            </span>
+          </div>
+          <div class="small text-muted"><i class="bi bi-calendar-event"></i> ${dateStr} · <i class="bi bi-tag"></i> ${c.category}</div>
+          <div class="mt-1">
+            ${c.skills.map(s => `<span class="badge badge-skill">${s}</span>`).join("")}
+          </div>
+          <div class="mt-2 d-flex gap-2">
+            <button class="btn btn-sm btn-dark" data-action="preview"><i class="bi bi-eye"></i> Aperçu</button>
+            ${c.verifyUrl ? `<a class="btn btn-sm btn-outline-dark btn-verify" href="${c.verifyUrl}" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> Vérifier</a>` : ""}
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderPage(items, page = 1) {
+    grid.innerHTML = "";
+    const start = (page - 1) * PAGE_SIZE;
+    const slice = items.slice(start, start + PAGE_SIZE);
+
+    slice.forEach(c => {
+      const col = document.createElement('div');
+      col.className = "col-sm-6 col-lg-4 d-flex";
+      col.innerHTML = cardTemplate(c);
+      col.querySelector('[data-action="preview"]').addEventListener('click', () => openPreview(c));
+      grid.appendChild(col);
+    });
+
+    renderPager(items.length, page);
+  }
+
+  function renderPager(total, page) {
+    pager.innerHTML = "";
+    const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
+    function pageItem(p, label = p, disabled = false, active = false) {
+      const li = document.createElement('li');
+      li.className = `page-item ${disabled ? 'disabled' : ''} ${active ? 'active' : ''}`;
+      const a = document.createElement('a');
+      a.className = "page-link";
+      a.href = "#";
+      a.textContent = label;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!disabled && currentPage !== p) {
+          currentPage = p;
+          applyFilters();
+        }
+      });
+      li.appendChild(a);
+      return li;
+    }
+
+    pager.appendChild(pageItem(page - 1, '«', page === 1));
+    for (let p = 1; p <= totalPages; p++) pager.appendChild(pageItem(p, String(p), false, p === page));
+    pager.appendChild(pageItem(page + 1, '»', page === totalPages));
+  }
+
+  function applyFilters() {
+    const filtered = CERTS.filter(matchesFilters).sort((a,b) => b.date.localeCompare(a.date));
+    // KPIs
+    document.getElementById('kpiTotal').textContent = CERTS.length;
+    const cutoff = new Date(); cutoff.setFullYear(cutoff.getFullYear()-1);
+    document.getElementById('kpiRecent').textContent = CERTS.filter(c => new Date(c.date) >= cutoff).length;
+
+    if ((currentPage - 1) * PAGE_SIZE >= filtered.length) currentPage = 1;
+    renderPage(filtered, currentPage);
+  }
+
+  function openPreview(cert) {
+    const modal = new bootstrap.Modal('#certModal');
+    document.getElementById('certModalTitle').textContent = cert.title + " — " + cert.issuer;
+    const img = document.getElementById('certModalImg');
+    img.src = cert.image;
+    img.alt = "Aperçu certificat " + cert.title;
+
+    const link = document.getElementById('certVerifyLink');
+    if (cert.verifyUrl) { link.classList.remove('d-none'); link.href = cert.verifyUrl; }
+    else { link.classList.add('d-none'); link.removeAttribute('href'); }
+    modal.show();
+  }
+
+  // Events
+  [searchInput, categoryFilter, issuerFilter].forEach(el =>
+    el.addEventListener('input', () => { currentPage = 1; applyFilters(); })
+  );
+
+  // Init
+  applyFilters();
+</script>
+</body>
+</html>

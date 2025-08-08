@@ -1,228 +1,284 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets | Jawad El Ibrahimi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --main-color: #1F0318;
-            --bg-color: #E5F2C9;
-            --accent-color: #DBC2CF;
-            --text-light: #fff;
-        }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--main-color);
-        }
-        nav.navbar {
-            background-color: var(--main-color) !important;
-        }
-        nav .navbar-brand, nav .nav-link {
-            color: var(--text-light) !important;
-        }
-        nav .nav-link:hover {
-            color: var(--accent-color) !important;
-        }
-        .section-title {
-            font-weight: bold;
-            color: var(--main-color);
-            margin: 40px 0 30px;
-            text-align: center;
-            font-size: 2rem;
-        }
-        .project-card {
-            background-color: var(--accent-color);
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .carousel-inner img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .btn-custom {
-            background: var(--main-color);
-            color: var(--text-light);
-            font-weight: bold;
-            border: none;
-            margin: 5px 5px 10px 0;
-            transition: background 0.3s ease;
-        }
-        .btn-custom:hover {
-            background: #3a0930;
-        }
-        .project-card h5 {
-            margin-top: 15px;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-        .project-card p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        .project-stack strong {
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .project-stack ul {
-            padding-left: 18px;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-        .feature-list {
-            text-align: left;
-            font-size: 0.9rem;
-            margin: 8px 0 12px;
-        }
-        footer {
-            margin-top: 40px;
-            padding: 15px;
-            background-color: var(--main-color);
-            color: var(--text-light);
-            text-align: center;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets | Jawad El Ibrahimi</title>
+  <meta name="description" content="Portfolio projets: Job Portal, Optique El Kayssar, Greenway (AriMayi), DigitalCrafts, Feedback, Proxmox.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    :root{
+      --main-color:#1F0318; --bg-color:#E5F2C9; --accent-color:#DBC2CF; --text-light:#fff;
+    }
+    body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:var(--bg-color);color:var(--main-color)}
+    /* largeur réduite et centrée */
+    .narrow-container{max-width:1100px;margin:0 auto}
+    nav.navbar{background:var(--main-color)!important}
+    nav .navbar-brand,nav .nav-link{color:var(--text-light)!important}
+    nav .nav-link:hover{color:var(--accent-color)!important}
+
+    .section-title{font-weight:700;margin:32px 0 22px;text-align:center;font-size:1.8rem}
+    .section-title i{vertical-align:-2px;margin-right:.4rem}
+
+    .project-card{
+      background:var(--accent-color);
+      border-radius:12px;
+      padding:14px;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
+      transition:.25s;
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      position:relative;
+    }
+    .project-card:hover{transform:translateY(-4px);box-shadow:0 8px 18px rgba(0,0,0,.18)}
+
+    /* Hauteur d'image réduite */
+    .carousel-item img,.project-img{width:100%;height:165px;object-fit:cover;border-radius:8px}
+
+    .btn-custom{
+      background:var(--main-color);color:var(--text-light);
+      font-weight:700;border:none;margin:5px 6px 8px 0
+    }
+    .btn-custom:hover{background:#3a0930}
+
+    .project-card h5{margin-top:12px;font-size:1.15rem;font-weight:700}
+    .project-card p{margin-bottom:8px;font-size:.93rem}
+
+    .stack-title{font-weight:700;margin:.25rem 0 .25rem 0}
+    .stack-list{list-style:none;padding-left:0;margin:0 0 8px 0;font-size:.9rem}
+    .stack-list li{display:flex;align-items:center;gap:.5rem;margin:.25rem 0}
+    .stack-list i{opacity:.9}
+
+    .feature-list{font-size:.9rem;margin:6px 0 10px}
+    footer{margin-top:26px;padding:14px;background:var(--main-color);color:var(--text-light);text-align:center;font-size:.9rem}
+
+    .ribbon{position:absolute;top:.6rem;right:.6rem;z-index:2}
+    .ribbon .badge{box-shadow:0 2px 6px rgba(0,0,0,.15)}
+
+    /* réduire la densité verticale sur petits écrans */
+    @media (max-width:576px){
+      .carousel-item img{height:150px}
+      .section-title{font-size:1.6rem;margin:26px 0 18px}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .project-card{transition:none}
+    }
+  </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Portfolio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html#home">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#about">À propos</a></li>
-                <li class="nav-item"><a class="nav-link active" href="projects.html">Projets</a></li>
-                <li class="nav-item"><a class="nav-link" href="stages.html">Stages</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
+  <div class="container narrow-container">
+    <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-person-circle me-1"></i> Portfolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door-fill me-1"></i> Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="stages.html"><i class="bi bi-briefcase-fill me-1"></i> Stages</a></li>
+        <li class="nav-item"><a class="nav-link" href="certificats.html"><i class="bi bi-award-fill me-1"></i> Certificats</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope-fill me-1"></i> Contact</a></li>
+      </ul>
     </div>
+  </div>
 </nav>
 
-<div class="container my-5">
-    <h2 class="section-title">Mes Réalisations</h2>
-    <div class="row g-4">
-        
-        <!-- Projet 1 : Job Portal -->
-        <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-                <div id="carouselJobPortal" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active"><img src="img/h4.jpg" alt="Job Portal"></div>
-                        <div class="carousel-item"><img src="img/Can2.jpg" alt="Job Portal"></div>
-                        <div class="carousel-item"><img src="img/h3.jpg" alt="Job Portal"></div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselJobPortal" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselJobPortal" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
-                </div>
-                <h5>Job Portal</h5>
-                <p>Application pour la gestion des offres d'emploi et candidatures.</p>
-                <div class="project-stack">
-                    <strong>Stack :</strong>
-                    <ul>
-                        <li>Spring Boot</li>
-                        <li>Thymeleaf</li>
-                        <li>Bootstrap</li>
-                    </ul>
-                </div>
-                <a href="https://github.com/JawadEll/jobportal" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
-                <a href="https://emsi.ma/ingenierie-informatique-et-reseaux/" target="_blank" class="btn btn-custom btn-sm">Projet Académique</a>
-            </div>
-        </div>
+<div class="container narrow-container my-4">
+  <h2 class="section-title"><i class="bi bi-kanban-fill"></i> Mes Réalisations</h2>
 
-        <!-- Projet 2 : Optique -->
-        <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-                <img src="img/optique.jpg" alt="Optique El Kayssar" class="img-fluid rounded">
-                <h5>Optique El Kayssar</h5>
-                <p>Site vitrine pour opticien avec gestion basique.</p>
-                <div class="project-stack">
-                    <strong>Stack :</strong>
-                    <ul>
-                        <li>Laravel</li>
-                        <li>HTML, CSS</li>
-                    </ul>
-                </div>
-                <p><strong>Prix :</strong> 3000 DH</p>
-                <a href="https://github.com/JawadEll/optique-el-kayssar03" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
+  <div class="row g-3 justify-content-center">
 
-                <a href="https://www.bt-africa.com/fr/entreprise/74480124-kayssar03" target="_blank" class="btn btn-custom btn-sm">Voir l'entreprise</a>
-            </div>
+    <!-- Projet 1 : Job Portal -->
+    <div class="col-12 col-sm-6 col-lg-4 d-flex">
+      <div class="project-card w-100">
+        <div class="ribbon"><span class="badge bg-dark"><i class="bi bi-mortarboard-fill"></i> Projet académique</span></div>
+        <div id="carouselJobPortal" class="carousel slide" data-bs-ride="carousel" aria-label="Captures Job Portal">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="img/h4.jpg" loading="lazy" alt="Accueil Job Portal"></div>
+            <div class="carousel-item"><img src="img/Can2.jpg" loading="lazy" alt="Liste des offres"></div>
+            <div class="carousel-item"><img src="img/h3.jpg" loading="lazy" alt="Détail d’offre"></div>
+          </div>
         </div>
-
-        <!-- Projet 3 : Greenway -->
-        <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-                <img src="img/greenway.jpg" alt="Greenway AriMayi" class="img-fluid rounded">
-                <h5>Greenway (AriMayi)</h5>
-                <p>Application d'entreprise pour la gestion des ventes et statistiques.</p>
-                <div class="project-stack">
-                    <strong>Stack :</strong>
-                    <ul>
-                        <li>Java 21, Spring Boot 3.2.5</li>
-                        <li>Spring Web, Data JPA, Thymeleaf</li>
-                        <li>PostgreSQL, PDF, Swagger</li>
-                    </ul>
-                </div>
-                <a href="https://github.com/JawadEll/projetStage2025" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
-                <a href="https://arimayi.fr/" target="_blank" class="btn btn-custom btn-sm">Voir l'entreprise</a>
-            </div>
+        <h5><i class="bi bi-briefcase"></i> Job Portal</h5>
+        <p><i class="bi bi-people"></i> Application pour gérer les offres d'emploi et candidatures.</p>
+        <div class="stack-title"><i class="bi bi-diagram-3"></i> Stack :</div>
+        <ul class="stack-list">
+          <li><i class="bi bi-cup-hot"></i> Spring Boot</li>
+          <li><i class="bi bi-filetype-html"></i> Thymeleaf</li>
+          <li><i class="bi bi-bootstrap"></i> Bootstrap</li>
+        </ul>
+        <div class="mt-auto">
+          <a href="https://github.com/JawadEll/jobportal" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-github"></i> Voir GitHub</a>
+          <a href="https://emsi.ma/ingenierie-informatique-et-reseaux/" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-mortarboard"></i> Projet Académique</a>
         </div>
-
-        <!-- Projet 4 : DigitalCrafts -->
-        <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-                <div id="carouselDigitalCrafts" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active"><img src="img/sc.jpg" alt="DigitalCrafts Dashboard"></div>
-                        <div class="carousel-item"><img src="img/sc1.jpg" alt="DigitalCrafts Élèves"></div>
-                        <div class="carousel-item"><img src="img/sc2.jpg" alt="DigitalCrafts Notes"></div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDigitalCrafts" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDigitalCrafts" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
-                </div>
-                <h5>DigitalCrafts</h5>
-                <p>Plateforme de gestion scolaire intuitive et moderne.</p>
-                <div class="project-stack">
-                    <strong>Stack :</strong>
-                    <ul>
-                        <li>React.js ⚛️, Laravel 🛠️</li>
-                        <li>MySQL 🗄️</li>
-                        <li>Bootstrap & TailwindCSS 🎨</li>
-                    </ul>
-                </div>
-                <p class="feature-list"><strong>Fonctionnalités :</strong> Suivi élèves, gestion classes, attribution notes, sécurité avancée.</p>
-                <a href="https://github.com/JawadEll/DigitalCrafts" target="_blank" class="btn btn-custom btn-sm">Voir GitHub</a>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <div class="text-center mt-5">
-        <a href="index.html" class="btn btn-secondary">← Retour à l'accueil</a>
+    <!-- Projet 2 : Optique -->
+    <div class="col-12 col-sm-6 col-lg-4 d-flex">
+      <div class="project-card w-100">
+        <div class="ribbon"><span class="badge bg-secondary"><i class="bi bi-lock-fill"></i> Projet privé</span></div>
+        <div id="carouselOptique" class="carousel slide" data-bs-ride="carousel" aria-label="Captures Optique">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="img/optique1.jpg" loading="lazy" alt="Accueil Optique"></div>
+            <div class="carousel-item"><img src="img/optique2.jpg" loading="lazy" alt="Catalogue lunettes"></div>
+          </div>
+        </div>
+        <h5><i class="bi bi-eyeglasses"></i> Optique El Kayssar</h5>
+        <p><i class="bi bi-window"></i> Site vitrine pour opticien avec gestion basique.</p>
+        <div class="stack-title"><i class="bi bi-diagram-3"></i> Stack :</div>
+        <ul class="stack-list">
+          <li><i class="bi bi-braces"></i> Laravel (PHP)</li>
+          <li><i class="bi bi-filetype-html"></i> HTML / <i class="bi bi-filetype-css"></i> CSS</li>
+        </ul>
+        <p class="mb-1"><i class="bi bi-tag"></i> <strong>Prix :</strong> 3000 DH</p>
+        <div class="mt-auto">
+          <a href="https://github.com/JawadEll/optique-el-kayssar03" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-github"></i> Voir GitHub</a>
+          <a href="https://www.bt-africa.com/fr/entreprise/74480124-kayssar03" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-building"></i> Entreprise</a>
+        </div>
+      </div>
     </div>
+
+    <!-- Projet 3 : Greenway (AriMayi) -->
+    <div class="col-12 col-sm-6 col-lg-4 d-flex">
+      <div class="project-card w-100">
+        <div class="ribbon"><span class="badge bg-success"><i class="bi bi-briefcase-fill"></i> Stage</span></div>
+        <div id="carouselGreenway" class="carousel slide" data-bs-ride="carousel" aria-label="Captures Greenway">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="img/G1.jpg" loading="lazy" alt="Dashboard ventes Greenway"></div>
+            <div class="carousel-item"><img src="img/G2.jpg" loading="lazy" alt="Liste des commandes Greenway"></div>
+          </div>
+        </div>
+        <h5><i class="bi bi-graph-up-arrow"></i> Greenway (AriMayi)</h5>
+        <p><i class="bi bi-bar-chart"></i> App pour la gestion des ventes et statistiques.</p>
+        <div class="stack-title"><i class="bi bi-diagram-3"></i> Stack :</div>
+        <ul class="stack-list">
+          <li><i class="bi bi-cpu"></i> Java 21, Spring Boot 3.2.5</li>
+          <li><i class="bi bi-diagram-2"></i> Spring Data JPA, Thymeleaf</li>
+          <li><i class="bi bi-database"></i> PostgreSQL • <i class="bi bi-filetype-pdf"></i> PDF • REST • Swagger</li>
+        </ul>
+        <div class="mt-auto">
+          <a href="https://github.com/JawadEll/projetStage2025" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-github"></i> Voir GitHub</a>
+          <a href="https://arimayi.fr/" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-building"></i> Entreprise</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 4 : DigitalCrafts -->
+    <div class="col-12 col-sm-6 col-lg-4 d-flex">
+      <div class="project-card w-100">
+        <div id="carouselDigitalCrafts" class="carousel slide" data-bs-ride="carousel" aria-label="Captures DigitalCrafts">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="img/sc.jpg" loading="lazy" alt="Dashboard DigitalCrafts"></div>
+            <div class="carousel-item"><img src="img/sc1.jpg" loading="lazy" alt="Gestion des élèves"></div>
+            <div class="carousel-item"><img src="img/sc2.jpg" loading="lazy" alt="Attribution des notes"></div>
+          </div>
+        </div>
+        <h5><i class="bi bi-motherboard"></i> DigitalCrafts</h5>
+        <p><i class="bi bi-journal-text"></i> Plateforme de gestion scolaire.</p>
+        <div class="stack-title"><i class="bi bi-diagram-3"></i> Stack :</div>
+        <ul class="stack-list">
+          <li><i class="bi bi-lightning-charge"></i> React.js</li>
+          <li><i class="bi bi-braces"></i> Laravel</li>
+          <li><i class="bi bi-database"></i> MySQL</li>
+          <li><i class="bi bi-bootstrap"></i> Bootstrap & <i class="bi bi-palette"></i> TailwindCSS</li>
+        </ul>
+        <p class="feature-list"><i class="bi bi-check2-circle"></i> Suivi élèves, gestion classes, attribution notes, sécurité avancée.</p>
+        <div class="mt-auto">
+          <a href="https://github.com/JawadEll/DigitalCrafts" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-github"></i> Voir GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 5 : Feedback -->
+    <div class="col-12 col-sm-6 col-lg-4 d-flex">
+      <div class="project-card w-100">
+        <div class="ribbon"><span class="badge bg-primary"><i class="bi bi-chat-left-quote-fill"></i> Feedback</span></div>
+        <div id="carouselFeedback" class="carousel slide" data-bs-ride="carousel" aria-label="Captures Feedback">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="img/Feed back.png" loading="lazy" alt="Liste feedbacks"></div>
+            <div class="carousel-item"><img src="img/feed2.png" loading="lazy" alt="Formulaire de feedback"></div>
+            <div class="carousel-item"><img src="img/bueno.png" loading="lazy" alt="Tableau de bord feedback"></div>
+          </div>
+        </div>
+        <h5><i class="bi bi-chat-square-quote"></i> Feedback</h5>
+        <p><i class="bi bi-ui-checks-grid"></i> Outil de collecte et d’analyse des retours (NPS, CSAT, commentaires).</p>
+        <div class="stack-title"><i class="bi bi-diagram-3"></i> Stack :</div>
+        <ul class="stack-list">
+          <li><i class="bi bi-lightning-charge"></i> React (frontend)</li>
+          <li><i class="bi bi-cup-hot"></i> Spring Boot (API)</li>
+          <li><i class="bi bi-database"></i> PostgreSQL</li>
+          <li><i class="bi bi-shield-lock"></i> REST API, JWT Auth</li>
+        </ul>
+        <p class="feature-list">
+          <i class="bi bi-check2-circle"></i> Formulaires multi-canaux • <i class="bi bi-graph-up"></i> Analytics NPS/CSAT • <i class="bi bi-filetype-csv"></i> Export CSV/PDF • Rôles & permissions
+        </p>
+        <div class="mt-auto">
+          <a href="https://github.com/JawadEll/feedback-app" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-github"></i> Voir GitHub</a>
+          <a href="#" class="btn btn-custom btn-sm disabled" aria-disabled="true" title="Démo privée"><i class="bi bi-lock-fill"></i> Démo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 6 : Proxmox Virtualisation -->
+    <div class="col-12 col-sm-6 col-lg-4 d-flex">
+      <div class="project-card w-100">
+        <div class="ribbon"><span class="badge bg-dark"><i class="bi bi-hdd-network-fill"></i> Virtualisation</span></div>
+        <div id="carouselProxmox" class="carousel slide" data-bs-ride="carousel" aria-label="Captures Proxmox">
+          <div class="carousel-inner">
+            <!-- Remplace par tes vraies captures -->
+            <div class="carousel-item active"><img src="img/virtualisation.jpg" loading="lazy" alt="Interface Proxmox"></div>
+            <div class="carousel-item"><img src="img/pve.jpg" loading="lazy" alt="Configuration VM Proxmox"></div>
+            </div>
+        </div>
+        <h5><i class="bi bi-hdd-network"></i> Proxmox — Virtualisation complète</h5>
+        <p><i class="bi bi-cloud-arrow-up"></i> Environnement avec VMs/LXC isolés (Web, DNS, DB), réseau bridge et cluster.</p>
+        <div class="stack-title"><i class="bi bi-diagram-3"></i> Stack :</div>
+        <ul class="stack-list">
+          <li><i class="bi bi-hdd"></i> Proxmox VE (hyperviseur type 1)</li>
+          <li><i class="bi bi-box"></i> LXC & VMs</li>
+          <li><i class="bi bi-diagram-2"></i> Bridges réseau</li>
+          <li><i class="bi bi-diagram-3-fill"></i> Cluster multi-nodes</li>
+        </ul>
+        <div class="mt-auto">
+          <a href="https://www.proxmox.com/" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-globe"></i> Usage - Proxmox</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plus de projets -->
+    <div class="col-12 col-sm-6 col-lg-4 d-flex">
+      <div class="project-card w-100 text-center">
+        <h5 class="mt-1"><i class="bi bi-stars"></i> Plus de projets</h5>
+        <p class="mb-2"><i class="bi bi-git"></i> Découvrez mes autres réalisations sur GitHub.</p>
+        <div class="mt-auto">
+          <a href="https://github.com/JawadEll" target="_blank" class="btn btn-custom btn-sm"><i class="bi bi-github"></i> Visiter mon GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="index.html" class="btn btn-secondary">← Retour à l'accueil</a>
+  </div>
 </div>
 
 <footer>
-    &copy; 2025 Jawad El Ibrahimi - Tous droits réservés.
+  &copy; 2025 Jawad El Ibrahimi - Tous droits réservés.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Carrousels auto enchaînés, pause désactivée
+  const carouselInterval = 1900;
+  document.querySelectorAll('.carousel').forEach(function (el) {
+    new bootstrap.Carousel(el, { interval: carouselInterval, ride: 'carousel', pause: false });
+  });
+</script>
 </body>
 </html>

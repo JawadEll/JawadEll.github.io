@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Jawad El Ibrahimi</title>
+  <meta name="description" content="Contactez Jawad El Ibrahimi pour un stage, un projet ou une collaboration." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    :root{
+      --main-color:#1F0318; --bg-color:#E5F2C9; --accent-color:#DBC2CF; --text-light:#fff;
+      --soft-pink:#f6eaf1;
+    }
+    body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:var(--bg-color);color:var(--main-color)}
+    nav.navbar{background:var(--main-color)!important}
+    nav .navbar-brand,nav .nav-link{color:var(--text-light)!important}
+    nav .nav-link:hover{color:var(--accent-color)!important}
+
+    /* Titre */
+    .section-title{font-weight:800;margin:34px 0 10px;text-align:center;font-size:2.15rem;letter-spacing:.2px}
+    .section-title i{vertical-align:-2px;margin-right:.4rem}
+    .lead-sub{opacity:.9;text-align:center;margin-bottom:20px}
+
+    /* Badges sous le titre */
+    .contact-badges{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+    .contact-badges .badge{font-weight:600}
+    .badge-laureat{background:#2d6cdf}
+    .badge-stage{background:#10a37f}
+
+    /* Carte principale */
+    .contact-card{background:var(--accent-color);border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.12);overflow:hidden;position:relative}
+    .contact-left{padding:22px;background:linear-gradient(135deg,var(--accent-color) 0%, #e9d2df 100%)}
+    .contact-right{padding:22px;background:var(--soft-pink)}
+    .info-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+    .info-item i{font-size:1.25rem}
+
+    /* Actions rapides */
+    .quick-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin:14px 0 4px}
+    .qa-btn{display:inline-flex;align-items:center;gap:.45rem;border:none;font-weight:700}
+    .qa-call{background:#198754;color:#fff}
+    .qa-wa{background:#25D366;color:#fff}
+    .qa-mail{background:var(--main-color);color:#fff}
+    .qa-btn:hover{filter:brightness(.95)}
+
+    .btn-main{background:var(--main-color);color:var(--text-light);border:none}
+    .btn-main:hover{background:#3a0930}
+    .copy-btn{border:1px dashed rgba(0,0,0,.35)}
+    .map iframe{width:100%;height:220px;border:0;border-radius:10px}
+    footer{margin-top:40px;padding:15px;background:var(--main-color);color:var(--text-light);text-align:center;font-size:.9rem}
+
+    /* Décor d’icônes téléphone dans la carte (subtil) */
+    .phone-deco{position:absolute;inset:0;pointer-events:none;opacity:.08}
+    .phone-deco:before,.phone-deco:after{
+      content:"\F5C1  \F5C1  \F5C1"; /* bi-telephone-plus / via font glyphs */
+      position:absolute;font-family:"bootstrap-icons";font-size:120px;line-height:1;
+    }
+    .phone-deco:before{top:10px;left:12px}
+    .phone-deco:after{bottom:10px;right:16px;transform:rotate(-15deg)}
+
+    /* Labels avec icône */
+    .form-label i{margin-right:.4rem;opacity:.8}
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-person-circle me-1"></i> Portfolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html#home"><i class="bi bi-house-door-fill me-1"></i> Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html"><i class="bi bi-kanban-fill me-1"></i> Projets</a></li>
+        <li class="nav-item"><a class="nav-link" href="stages.html"><i class="bi bi-briefcase-fill me-1"></i> Stages</a></li>
+        <li class="nav-item"><a class="nav-link" href="certificats.html"><i class="bi bi-award-fill me-1"></i> Certificats</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-5" id="contact">
+  <!-- TITRE -->
+  <h1 class="section-title"><i class="bi bi-telephone-plus-fill"></i> Contact</h1>
+  <p class="lead-sub">Disponible pour un <strong>stage PFE dès année 2026</strong>, missions freelance ou collaborations.</p>
+
+  <!-- BADGES -->
+  <div class="contact-badges">
+    <span class="badge badge-laureat"><i class="bi bi-trophy-fill me-1"></i> Lauréat</span>
+    <span class="badge badge-stage"><i class="bi bi-rocket-takeoff-fill me-1"></i> Ouvert au stage PFE</span>
+  </div>
+
+  <div class="contact-card row g-0">
+    <span class="phone-deco"></span>
+
+    <!-- Colonne infos -->
+    <div class="col-lg-5 contact-left">
+      <h5 class="mb-3"><i class="bi bi-person-lines-fill me-1"></i> Coordonnées</h5>
+
+      <div class="info-item">
+        <i class="bi bi-envelope-fill"></i>
+        <div class="w-100">
+          <div class="d-flex align-items-center justify-content-between">
+            <span><strong>Email :</strong> <span id="emailText">jawadelibrahimi10@gmail.com</span></span>
+            <button class="btn btn-sm copy-btn" data-copy="#emailText" aria-label="Copier l'email"><i class="bi bi-clipboard"></i></button>
+          </div>
+          <div class="quick-actions">
+            <a class="btn qa-mail qa-btn btn-sm" href="mailto:jawadelibrahimi10@gmail.com?subject=Contact%20Portfolio"><i class="bi bi-send-fill"></i> Écrire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="bi bi-telephone-fill"></i>
+        <div class="w-100">
+          <div class="d-flex align-items-center justify-content-between">
+            <span><strong>Téléphone :</strong> <span id="phoneText">+212 6 12 34 56 78</span></span>
+            <button class="btn btn-sm copy-btn" data-copy="#phoneText" aria-label="Copier le téléphone"><i class="bi bi-clipboard"></i></button>
+          </div>
+          <!-- Actions rapides -->
+          <div class="quick-actions">
+            <a class="btn qa-call qa-btn btn-sm" href="tel:+212612345678"><i class="bi bi-telephone-outbound-fill"></i> Appeler</a>
+            <a class="btn qa-wa qa-btn btn-sm" target="_blank" rel="noopener"
+               href="https://wa.me/212612345678?text=Bonjour%20Jawad%2C%20vu%20depuis%20votre%20portfolio.">
+               <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="bi bi-geo-alt-fill"></i>
+        <div>
+          <strong>Localisation :</strong> Salé, Maroc
+          <div class="map mt-2">
+            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Sal%C3%A9%2C%20Maroc&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 d-flex flex-wrap gap-2">
+        <a class="btn btn-sm btn-dark" target="_blank" rel="noopener" href="https://github.com/JawadEll"><i class="bi bi-github"></i> GitHub</a>
+        <a class="btn btn-sm btn-primary" target="_blank" rel="noopener" href="https://www.linkedin.com/in/jawad-el-ibrahimi/"><i class="bi bi-linkedin"></i> LinkedIn</a>
+        <a class="btn btn-sm btn-outline-dark" href="pdf/CV.pdf" download><i class="bi bi-file-earmark-arrow-down"></i> Télécharger CV</a>
+      </div>
+    </div>
+
+    <!-- Colonne formulaire -->
+    <div class="col-lg-7 contact-right">
+      <h5 class="mb-3"><i class="bi bi-chat-dots-fill me-1"></i> Envoyer un message</h5>
+
+      <form id="contactForm" class="needs-validation" novalidate action="https://formspree.io/f/xvgqvneb" method="POST">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label"><i class="bi bi-person"></i> Nom complet</label>
+            <input type="text" name="name" class="form-control" required />
+            <div class="invalid-feedback">Nom requis.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label"><i class="bi bi-at"></i> Email</label>
+            <input type="email" name="email" class="form-control" required />
+            <div class="invalid-feedback">Email valide requis.</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label"><i class="bi bi-chat-left-text"></i> Sujet</label>
+            <input type="text" name="subject" class="form-control" required />
+            <div class="invalid-feedback">Sujet requis.</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label"><i class="bi bi-pencil-square"></i> Message</label>
+            <textarea name="message" rows="6" class="form-control" required></textarea>
+            <div class="invalid-feedback">Message requis.</div>
+          </div>
+
+          <!-- Honeypot anti-spam -->
+          <div class="col-12" style="position:absolute; left:-9999px;">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="col-12">
+            <div id="formAlert" class="alert d-none" role="alert"></div>
+          </div>
+
+          <div class="col-12 d-flex flex-wrap gap-2">
+            <button type="submit" class="btn btn-main"><i class="bi bi-send-fill me-1"></i> Envoyer</button>
+            <button type="button" id="mailtoBtn" class="btn btn-outline-dark"><i class="bi bi-envelope me-1"></i> Ou envoyer via Mail</button>
+          </div>
+
+          <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="index.html" class="btn btn-secondary">← Retour à l'accueil</a>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Jawad El Ibrahimi - Tous droits réservés.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Validation Bootstrap
+  (function () {
+    'use strict';
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function (e) {
+      if (!form.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
+      form.classList.add('was-validated');
+    }, false);
+  })();
+
+  // Copier email/téléphone
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sel = btn.getAttribute('data-copy');
+      const el = document.querySelector(sel);
+      if (!el) return;
+      const text = el.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        btn.innerHTML = '<i class="bi bi-check2"></i>';
+        setTimeout(()=> btn.innerHTML = '<i class="bi bi-clipboard"></i>', 1200);
+      });
+    });
+  });
+
+  // Envoi avec retour visuel
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    if (!form.checkValidity()) { form.classList.add('was-validated'); return; }
+    const alertBox = document.getElementById('formAlert');
+    const data = new FormData(form);
+    try {
+      const r = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }});
+      if (r.ok) {
+        alertBox.className = 'alert alert-success';
+        alertBox.textContent = 'Message envoyé avec succès ✅';
+        form.reset(); form.classList.remove('was-validated');
+      } else {
+        const text = await r.text().catch(()=> '');
+        alertBox.className = 'alert alert-warning';
+        alertBox.textContent = `Échec (${r.status} ${r.statusText}) → ${text.slice(0,200)}`;
+        console.warn('Formspree response:', r, text);
+      }
+    } catch (ex) {
+      alertBox.className = 'alert alert-danger';
+      alertBox.textContent = 'Impossible de contacter le service.';
+      console.error(ex);
+    }
+  });
+
+  // Fallback mailto
+  document.getElementById('mailtoBtn').addEventListener('click', () => {
+    const form = document.getElementById('contactForm');
+    const name = encodeURIComponent(form.elements['name'].value || '');
+    const email = encodeURIComponent(form.elements['email'].value || '');
+    const subject = encodeURIComponent(form.elements['subject'].value || 'Contact Portfolio');
+    const message = encodeURIComponent(form.elements['message'].value || '');
+    const body = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+    window.location.href = `mailto:jawadelibrahimi10@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>
+</body>
+</html>
